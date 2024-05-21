@@ -50,12 +50,15 @@ const initializeDefaults = async () => {
     { name: 'Space', category: 'background', filePath: 'public/images/backgrounds/space.jpg' },
     { name: 'W3Hub', category: 'background', filePath: 'public/images/backgrounds/w3hub.jpg' },
     { name: 'Red Shirt', category: 'shirt', filePath: 'public/images/shirt/red.png' },
-    { name: 'Blue Shirt', category: 'shirt', filePath: 'public/images/shirt/blue.png' },
-    { name: 'Green Shirt', category: 'shirt', filePath: 'public/images/shirt/green.png' },
+    // { name: 'Blue Shirt', category: 'shirt', filePath: 'public/images/shirt/blue.png' },
+    // { name: 'Green Shirt', category: 'shirt', filePath: 'public/images/shirt/green.png' },
+    { name: 'Hawai', category: 'shirt', filePath: 'public/images/shirt/hawai.png' },
+    { name: 'Tiger', category: 'shirt', filePath: 'public/images/shirt/tiger.png' },
     { name: 'Solana', category: 'shirt', filePath: 'public/images/shirt/solana.png' },
-    { name: 'Sword', category: 'weapon', filePath: 'public/images/weapons/sword.png' },
-    { name: 'Gun', category: 'weapon', filePath: 'public/images/weapons/gun.png' },
-    { name: 'Bow', category: 'weapon', filePath: 'public/images/weapons/bow.png' },
+    { name: 'Axe', category: 'weapon', filePath: 'public/images/weapons/axe.png' },
+    { name: 'Guns', category: 'weapon', filePath: 'public/images/weapons/guns.png' },
+    { name: 'Stick', category: 'weapon', filePath: 'public/images/weapons/stick.png' },
+    { name: 'Gun', category: 'weapon', filePath: 'public/images/weapons/gun2.png' },
   ];
 
   await Trait.deleteMany({}); // Clear all existing traits
@@ -69,6 +72,7 @@ const initializeDefaults = async () => {
 };
 
 // API endpoint to upload a file and save trait
+console.log("api upload")
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   const { name, category } = req.body;
   const filePath = req.file.path;

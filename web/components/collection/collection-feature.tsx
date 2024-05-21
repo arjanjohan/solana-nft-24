@@ -8,7 +8,7 @@ interface Trait {
   _id: string;
   name: string;
   category: string;
-  filePath: string;
+  filePath: string | null;
 }
 
 const emptyImage = '/images/none.png';
@@ -35,9 +35,26 @@ const CollectionPage: React.FC = () => {
     const response = await axios.get('http://localhost:5000/api/traits');
     const traits: Trait[] = response.data;
 
-    setBackgrounds(traits.filter((trait) => trait.category === 'background'));
-    setShirts(traits.filter((trait) => trait.category === 'shirt'));
-    setWeapons(traits.filter((trait) => trait.category === 'weapon'));
+    // Add the "None" option to each category
+    const noneOption: Trait = {
+      _id: 'none',
+      name: 'None',
+      category: '',
+      filePath: null,
+    };
+
+    setBackgrounds([
+      noneOption,
+      ...traits.filter((trait) => trait.category === 'background'),
+    ]);
+    setShirts([
+      noneOption,
+      ...traits.filter((trait) => trait.category === 'shirt'),
+    ]);
+    setWeapons([
+      noneOption,
+      ...traits.filter((trait) => trait.category === 'weapon'),
+    ]);
   };
 
   const handleUpload = () => {
@@ -48,9 +65,7 @@ const CollectionPage: React.FC = () => {
 
   return (
     <div className="collection-page container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">
-        Customize Your Collection Item
-      </h1>
+      <h1 className="text-3xl font-bold mb-4">Berlin Bears</h1>
       <div className="flex justify-center">
         <div className="w-full flex">
           <div className="w-2/3 pr-4">
@@ -92,10 +107,18 @@ const CollectionPage: React.FC = () => {
                   <div
                     key={bg._id}
                     onClick={() => setSelectedBackground(bg)}
-                    className="cursor-pointer"
+                    className={`cursor-pointer ${
+                      selectedBackground?._id === bg._id
+                        ? 'border-4 border-white'
+                        : ''
+                    }`}
                   >
                     <img
-                      src={`http://localhost:5000/${bg.filePath}`}
+                      src={
+                        bg.filePath
+                          ? `http://localhost:5000/${bg.filePath}`
+                          : emptyImage
+                      }
                       alt={bg.name}
                       className="w-16 h-16 object-cover"
                     />
@@ -116,10 +139,18 @@ const CollectionPage: React.FC = () => {
                   <div
                     key={shirt._id}
                     onClick={() => setSelectedShirt(shirt)}
-                    className="cursor-pointer"
+                    className={`cursor-pointer ${
+                      selectedShirt?._id === shirt._id
+                        ? 'border-4 border-white'
+                        : ''
+                    }`}
                   >
                     <img
-                      src={`http://localhost:5000/${shirt.filePath}`}
+                      src={
+                        shirt.filePath
+                          ? `http://localhost:5000/${shirt.filePath}`
+                          : emptyImage
+                      }
                       alt={shirt.name}
                       className="w-16 h-16 object-cover"
                     />
@@ -140,10 +171,18 @@ const CollectionPage: React.FC = () => {
                   <div
                     key={weapon._id}
                     onClick={() => setSelectedWeapon(weapon)}
-                    className="cursor-pointer"
+                    className={`cursor-pointer ${
+                      selectedWeapon?._id === weapon._id
+                        ? 'border-4 border-white'
+                        : ''
+                    }`}
                   >
                     <img
-                      src={`http://localhost:5000/${weapon.filePath}`}
+                      src={
+                        weapon.filePath
+                          ? `http://localhost:5000/${weapon.filePath}`
+                          : emptyImage
+                      }
                       alt={weapon.name}
                       className="w-16 h-16 object-cover"
                     />

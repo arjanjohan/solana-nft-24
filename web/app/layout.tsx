@@ -10,7 +10,8 @@ export const metadata = {
 };
 
 const links: { label: string; path: string }[] = [
-  { label: 'Create', path: '/account' },
+  { label: 'Account', path: '/account' },
+  { label: 'Create', path: '/create' },
   { label: 'Collections', path: '/collections' },
 ];
 
@@ -33,11 +34,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// const shirts = [
-//   { id: 0, name: 'None', src: null },
-//   { id: 1, name: 'Red Shirt', src: '/images/shirt/red.png' },
-//   { id: 2, name: 'Blue Shirt', src: '/images/shirt/blue.png' },
-//   { id: 3, name: 'Green Shirt', src: '/images/shirt/green.png' },
-//   { id: 3, name: 'Solana', src: '/images/shirt/solana.png' },
-// ];
