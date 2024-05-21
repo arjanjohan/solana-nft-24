@@ -27,13 +27,16 @@
     "@tanstack/react-query-next-experimental": "5.24.1",
     "bs58": "5.0.0",
     "buffer": "6.0.3",
+    "classnames": "^2.5.1",
     "daisyui": "4.7.2",
     "encoding": "0.1.13",
     "jotai": "2.6.5",
     "next": "13.4.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-hot-toast": "2.4.1",
+    "react-paginate": "^8.2.0",
+    "react-router-dom": "^6.23.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
