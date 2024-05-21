@@ -1,96 +1,65 @@
-# test01
+<div align="center">
+  <h1 align="center">MINT TOGETHER </h1>  
+  <h3>pump.fun for nft's</h3>
+  <img src="logo.png" alt="logo" width="300" height="300">
+  </div>
 
-This project is generated with the [create-solana-dapp](https://github.com/solana-developers/create-solana-dapp) generator.
+**MINT TOGETHER** is an NFT launchpad for community-generated art, inspired by the success of pump.fun. This platform aims to create NFT collections collaboratively, with a community-driven approach to attribute creation and rarity determination.
 
-## Getting Started
+## Inspiration
 
-### Prerequisites
+- Success of pump.fun
+- The challenge of building a similar platform for NFTs
 
-- Node v18.18.0 or higher
+## Idea
 
-- Rust v1.70.0 or higher
-- Anchor CLI 0.29.0 or higher
-- Solana CLI 1.17.0 or higher
+MINT TOGETHER focuses on community-created NFT collections with the following features:
 
-### Installation
+- **Token-based minting:** Buy and sell tokens that are used to mint NFTs.
+- **Community-driven creation:** Collections are created by the community.
+- **User contributions:** Users can upload new attributes and vote for them.
+- **Token locking:** Voting locks tokens, making sure prizes go up only.
+- **Token locking:** Collections are generated dynamically based on community votes after the creation/voting period ends.
 
-#### Clone the repo
+### Detailed Flow
 
-```shell
-git clone <repo-url>
-cd <repo-name>
-```
+![flow](flow.png)
 
-#### Install Dependencies
+1. **Owner creates a collection:**
 
-```shell
-npm install
-```
+   - Sets the collection's name and description.
+   - Determines the attributes (e.g., body, shirt, weapon).
+   - Uploads images for these attributes.
 
-#### Start the web app
+2. **Creators add to the collection:**
 
-```
-npm run dev
-```
+   - Buy shares (tokens) for the collection.
+   - Upload images for attributes.
 
-## Apps
+3. **Collectors vote on :**
+   - Buy shares (tokens) for the collection.
+   - Vote on their favorite attributes.
 
-### anchor
+**Note:** Voting locks tokens until the collection is generated. Uploading new attributes also locks tokens and counts as a vote for that attribute.
 
-This is a Solana program written in Rust using the Anchor framework.
+### Flow - Timeline
 
-#### Commands
+![timeline](timeline.png)
 
-You can use any normal anchor commands. Either move to the `anchor` directory and run the `anchor` command or prefix the command with `npm run`, eg: `npm run anchor`.
+1. Owner creates and sets up the collection.
+2. Creators and collectors participate by buying tokens, uploading images, and voting on attributes.
+3. Tokens are locked during voting.
+4. Collection is generated dynamically based on the final votes after the voting period closes.
 
-#### Sync the program id:
+## Next Steps
 
-Running this command will create a new keypair in the `anchor/target/deploy` directory and save the address to the Anchor config file and update the `declare_id!` macro in the `./src/lib.rs` file of the program.
+- Develop creation and voting pages.
+- Implement admin functions to approve/remove attributes.
+- Introduce royalties for Owners and Creators.
+- Finalize tokenomics:
+  - Decide between bonding curve or fixed token price.
+  - Determine if there will be a fixed number of tokens or a fixed sale period.
 
-You will manually need to update the constant in `anchor/lib/counter-exports.ts` to match the new program id.
+## Team
 
-```shell
-npm run anchor keys sync
-```
-
-#### Build the program:
-
-```shell
-npm run anchor-build
-```
-
-#### Start the test validator with the program deployed:
-
-```shell
-npm run anchor-localnet
-```
-
-#### Run the tests
-
-```shell
-npm run anchor-test
-```
-
-#### Deploy to Devnet
-
-```shell
-npm run anchor deploy --provider.cluster devnet
-```
-
-### web
-
-This is a React app that uses the Anchor generated client to interact with the Solana program.
-
-#### Commands
-
-Start the web app
-
-```shell
-npm run dev
-```
-
-Build the web app
-
-```shell
-npm run build
-```
+[@arjanjohan](https://twitter.com/arjanjohan)
