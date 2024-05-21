@@ -4,17 +4,26 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UploadPopup from './upload-popup'; // Import the UploadPopup component
 
+interface Trait {
+  _id: string;
+  name: string;
+  category: string;
+  filePath: string;
+}
+
 const emptyImage = '/images/none.png';
 const bodyImage = '/images/base/body.png';
 
-const CollectionPage = () => {
-  const [backgrounds, setBackgrounds] = useState([]);
-  const [shirts, setShirts] = useState([]);
-  const [weapons, setWeapons] = useState([]);
+const CollectionPage: React.FC = () => {
+  const [backgrounds, setBackgrounds] = useState<Trait[]>([]);
+  const [shirts, setShirts] = useState<Trait[]>([]);
+  const [weapons, setWeapons] = useState<Trait[]>([]);
 
-  const [selectedBackground, setSelectedBackground] = useState(null);
-  const [selectedShirt, setSelectedShirt] = useState(null);
-  const [selectedWeapon, setSelectedWeapon] = useState(null);
+  const [selectedBackground, setSelectedBackground] = useState<Trait | null>(
+    null
+  );
+  const [selectedShirt, setSelectedShirt] = useState<Trait | null>(null);
+  const [selectedWeapon, setSelectedWeapon] = useState<Trait | null>(null);
 
   const [showUploadPopup, setShowUploadPopup] = useState(false);
 
@@ -24,7 +33,7 @@ const CollectionPage = () => {
 
   const fetchTraits = async () => {
     const response = await axios.get('http://localhost:5000/api/traits');
-    const traits = response.data;
+    const traits: Trait[] = response.data;
 
     setBackgrounds(traits.filter((trait) => trait.category === 'background'));
     setShirts(traits.filter((trait) => trait.category === 'shirt'));
@@ -39,12 +48,14 @@ const CollectionPage = () => {
 
   return (
     <div className="collection-page container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Berlin Bears - Customize</h1>
+      <h1 className="text-3xl font-bold mb-4">
+        Customize Your Collection Item
+      </h1>
       <div className="flex justify-center">
         <div className="w-full flex">
           <div className="w-2/3 pr-4">
             <div className="relative w-full h-[48rem]">
-              {selectedBackground && selectedBackground.src && (
+              {selectedBackground && selectedBackground.filePath && (
                 <img
                   src={`http://localhost:5000/${selectedBackground.filePath}`}
                   alt={selectedBackground.name}
@@ -56,14 +67,14 @@ const CollectionPage = () => {
                 alt="Base"
                 className="absolute top-0 left-0 w-full h-full object-cover z-10"
               />
-              {selectedShirt && selectedShirt.src && (
+              {selectedShirt && selectedShirt.filePath && (
                 <img
                   src={`http://localhost:5000/${selectedShirt.filePath}`}
                   alt={selectedShirt.name}
                   className="absolute top-0 left-0 w-full h-full object-cover z-20"
                 />
               )}
-              {selectedWeapon && selectedWeapon.src && (
+              {selectedWeapon && selectedWeapon.filePath && (
                 <img
                   src={`http://localhost:5000/${selectedWeapon.filePath}`}
                   alt={selectedWeapon.name}

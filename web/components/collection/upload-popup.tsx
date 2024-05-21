@@ -3,15 +3,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+interface UploadPopupProps {
+  show: boolean;
+  onClose: () => void;
+  onUpload: () => void;
+}
+
 export default function UploadPopup({
   show,
   onClose,
   onUpload,
-}: {
-  show: boolean;
-  onClose: () => void;
-  onUpload: () => void;
-}) {
+}: UploadPopupProps) {
   const [file, setFile] = useState<File | null>(null);
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
