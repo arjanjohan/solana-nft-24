@@ -3,6 +3,7 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 app.use(cors());
@@ -30,10 +31,19 @@ const TraitSchema = new mongoose.Schema({
 
 const Trait = mongoose.model('Trait', TraitSchema);
 
+// Ensure uploads directory exists
+const ensureUploadsDirExists = () => {
+  const dir = path.join(__dirname, 'uploads');
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+};
+
 // Set up Multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/');
+    ensureUploadsDirExists();
+    cb(null, path.join(__dirname, 'uploads'));
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -48,10 +58,7 @@ const initializeDefaults = async () => {
     { name: 'City', category: 'background', filePath: 'public/images/backgrounds/city-berlin.jpg' },
     { name: 'Forest', category: 'background', filePath: 'public/images/backgrounds/forest.jpg' },
     { name: 'Space', category: 'background', filePath: 'public/images/backgrounds/space.jpg' },
-    // { name: 'W3Hub', category: 'background', filePath: 'public/images/backgrounds/w3hub.jpg' },
     { name: 'Red Shirt', category: 'shirt', filePath: 'public/images/shirt/red.png' },
-    // { name: 'Blue Shirt', category: 'shirt', filePath: 'public/images/shirt/blue.png' },
-    // { name: 'Green Shirt', category: 'shirt', filePath: 'public/images/shirt/green.png' },
     { name: 'Hawai', category: 'shirt', filePath: 'public/images/shirt/hawai.png' },
     { name: 'Tiger', category: 'shirt', filePath: 'public/images/shirt/tiger.png' },
     { name: 'Solana', category: 'shirt', filePath: 'public/images/shirt/solana.png' },
@@ -75,7 +82,7 @@ const initializeDefaults = async () => {
 console.log("api upload")
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   const { name, category } = req.body;
-  const filePath = req.file.path;
+  const filePath = path.join('uploads', req.file.filename);
 
   const trait = new Trait({ name, category, filePath });
   await trait.save();
