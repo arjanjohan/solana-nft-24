@@ -11,6 +11,16 @@
 - Success of pump.fun
 - The challenge of building a similar platform for NFTs
 
+## Screenshots
+
+| Landing Page                                 | Create Collection                      |
+| -------------------------------------------- | -------------------------------------- |
+| ![Landing Page](screenshots/landingpage.png) | ![Create Page](screenshots/create.png) |
+
+| Collections overview                       | Modify collection                        |
+| ------------------------------------------ | ---------------------------------------- |
+| ![Games Page](screenshots/collections.png) | ![Play Page](screenshots/collection.png) |
+
 ## Idea
 
 MINT TOGETHER focuses on community-created NFT collections with the following features:

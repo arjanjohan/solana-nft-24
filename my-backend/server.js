@@ -58,6 +58,7 @@ const initializeDefaults = async () => {
     { name: 'City', category: 'background', filePath: 'public/images/backgrounds/city-berlin.jpg' },
     { name: 'Forest', category: 'background', filePath: 'public/images/backgrounds/forest.jpg' },
     { name: 'Space', category: 'background', filePath: 'public/images/backgrounds/space.jpg' },
+    { name: 'Moon', category: 'background', filePath: 'public/images/backgrounds/moon.jpg' },
     { name: 'Red Shirt', category: 'shirt', filePath: 'public/images/shirt/red.png' },
     { name: 'Hawai', category: 'shirt', filePath: 'public/images/shirt/hawai.png' },
     { name: 'Tiger', category: 'shirt', filePath: 'public/images/shirt/tiger.png' },
