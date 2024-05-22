@@ -6,13 +6,14 @@ skip-lint = false
 
 [programs.localnet]
 test01 = "6p1a6Nq66DgLomDJWYSyqamaAyUe5FfQcdnhSXk41ieh"
+together = "6X1bbuhSvquPbM3sByfnMNfT2MXUZX5BvFHSAJx4x1yN"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-wallet = "~/.config/solana/id.json"
+cluster = "https://api.devnet.solana.com"
+wallet = "/home/arjanjohan/.config/solana/id.json"
 
 [scripts]
 test = "../node_modules/.bin/nx run anchor:jest"

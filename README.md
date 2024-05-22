@@ -60,6 +60,10 @@ MINT TOGETHER focuses on community-created NFT collections with the following fe
   - Decide between bonding curve or fixed token price.
   - Determine if there will be a fixed number of tokens or a fixed sale period.
 
+## Links
+
+[Presentation slides](https://docs.google.com/presentation/d/1X5y4KVVY_62WxXtADXpi1Ruli4q3Z7MkqV_SyJb4RvY/edit?usp=sharing)
+
 ## Team
 
 [@arjanjohan](https://twitter.com/arjanjohan)
