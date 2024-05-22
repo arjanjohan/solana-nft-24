@@ -45,5 +45,3 @@ anchor/target/.rustc_info.json
 !anchor/target/types/*.ts
 test-ledger
 .yarn
-
-anchor/programs/token_voting

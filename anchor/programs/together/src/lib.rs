@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
-use anchor_spl::token::{self, Mint, TokenAccount, Transfer};
+use anchor_spl::token::{self, Mint, MintTo, TokenAccount, Transfer};
+use solana_program::entrypoint::ProgramResult;
 
 declare_id!("6X1bbuhSvquPbM3sByfnMNfT2MXUZX5BvFHSAJx4x1yN");
 

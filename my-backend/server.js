@@ -48,7 +48,7 @@ const initializeDefaults = async () => {
     { name: 'City', category: 'background', filePath: 'public/images/backgrounds/city-berlin.jpg' },
     { name: 'Forest', category: 'background', filePath: 'public/images/backgrounds/forest.jpg' },
     { name: 'Space', category: 'background', filePath: 'public/images/backgrounds/space.jpg' },
-    { name: 'W3Hub', category: 'background', filePath: 'public/images/backgrounds/w3hub.jpg' },
+    // { name: 'W3Hub', category: 'background', filePath: 'public/images/backgrounds/w3hub.jpg' },
     { name: 'Red Shirt', category: 'shirt', filePath: 'public/images/shirt/red.png' },
     // { name: 'Blue Shirt', category: 'shirt', filePath: 'public/images/shirt/blue.png' },
     // { name: 'Green Shirt', category: 'shirt', filePath: 'public/images/shirt/green.png' },

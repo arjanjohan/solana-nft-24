@@ -1,7 +1,7 @@
 <div align="center">
   <h1 align="center">MINT TOGETHER </h1>  
   <h3>pump.fun for nft's</h3>
-  <img src="logo.png" alt="logo" width="300" height="300">
+  <img src="logo2.png" alt="logo" width="300" height="300">
   </div>
 
 **MINT TOGETHER** is an NFT launchpad for community-generated art, inspired by the success of pump.fun. This platform aims to create NFT collections collaboratively, with a community-driven approach to attribute creation and rarity determination.
@@ -50,6 +50,41 @@ MINT TOGETHER focuses on community-created NFT collections with the following fe
 2. Creators and collectors participate by buying tokens, uploading images, and voting on attributes.
 3. Tokens are locked during voting.
 4. Collection is generated dynamically based on the final votes after the voting period closes.
+
+## Getting starting
+
+### Prerequisites
+
+- Node v18.18.0 or higher
+
+- Rust v1.70.0 or higher
+- Anchor CLI 0.29.0 or higher
+- Solana CLI 1.17.0 or higher
+
+#### Clone the repo
+
+```shell
+git clone https://github.com/arjanjohan/solana-nft-24.git
+cd solana-nft-24
+```
+
+#### Install Dependencies
+
+```shell
+npm install
+```
+
+#### Start the server
+
+```
+node my-backend/server.js
+```
+
+#### In a new terminal, start the web app
+
+```
+npm run dev
+```
 
 ## Next Steps
 
