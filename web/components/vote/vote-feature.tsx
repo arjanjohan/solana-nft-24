@@ -90,7 +90,6 @@ const VotePage: React.FC = () => {
                 />
               )}
             </div>
-            <button className="btn btn-primary mt-4">Submit Vote</button>
           </div>
           <div className="w-1/3">
             <div>
